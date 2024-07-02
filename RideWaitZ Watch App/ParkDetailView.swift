@@ -43,7 +43,9 @@ struct ParkDetailView: View {
         }
         .navigationTitle("Ride Wait Times")
     }
-
+//Add code for updating ride times when foregrounding.
+    
+    
     private func fetchWaitTimes() {
         ThemeParksAPI.shared.fetchWaitTimes(for: parkId) { result in
             DispatchQueue.main.async {
