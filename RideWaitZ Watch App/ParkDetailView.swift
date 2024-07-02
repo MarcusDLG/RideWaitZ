@@ -2,6 +2,7 @@ import SwiftUI
 
 struct ParkDetailView: View {
     let parkId: String
+    let parkName: String
     @State private var rides: [Ride] = []
     @State private var parkHours: ParkHours?
     @State private var isLoading = true
@@ -51,7 +52,7 @@ struct ParkDetailView: View {
                 fetchParkDetails()
             }
         }
-        .navigationTitle("Park Details")
+        .navigationTitle(parkName)
     }
 
     private func fetchParkDetails() {

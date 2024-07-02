@@ -12,10 +12,10 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List {
-                NavigationLink(destination: ParkDetailView(parkId: "eb3f4560-2383-4a36-9152-6b3e5ed6bc57")) {
+                NavigationLink(destination: ParkDetailView(parkId: "eb3f4560-2383-4a36-9152-6b3e5ed6bc57", parkName: "Universal Studios")) {
                     ParkRow(name: "Universal Studios", imageName: "UniversalStudiosFlorida")
                 }
-                NavigationLink(destination: ParkDetailView(parkId: "267615cc-8943-4c2a-ae2c-5da728ca591f")) {
+                NavigationLink(destination: ParkDetailView(parkId: "267615cc-8943-4c2a-ae2c-5da728ca591f", parkName: "Islands of Adventure")) {
                     ParkRow(name: "Islands of Adventure", imageName: "UniversalIslandsOfAdventure")
                 }
 //                NavigationLink(destination: ParkDetailView(parkId: "75ea578a-adc8-4116-a54d-dccb60765ef9")) {
