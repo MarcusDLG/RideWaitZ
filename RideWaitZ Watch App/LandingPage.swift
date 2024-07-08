@@ -21,6 +21,16 @@ struct ContentView: View {
                 NavigationLink(destination: ParkDetailView(parkId: "75ea578a-adc8-4116-a54d-dccb60765ef9", parkName: "Magic Kingdom")) {
                     ParkRow(name: "Magic Kingdom", imageName: "MagicKingdom")
                 }
+                NavigationLink(destination: ParkDetailView(parkId: "1c84a229-8862-4648-9c71-378ddd2c7693", parkName: "Animal Kingdom")) {
+                    ParkRow(name: "Animal Kingdom", imageName: "AnimalKingdom")
+                }
+                NavigationLink(destination: ParkDetailView(parkId: "288747d1-8b4f-4a64-867e-ea7c9b27bad8", parkName: "Hollywood Studios")) {
+                    ParkRow(name: "Hollywood Studios", imageName: "HollywoodStudios")
+                }
+                NavigationLink(destination: ParkDetailView(parkId: "47f90d2c-e191-4239-a466-5892ef59a88b", parkName: "Epcot")) {
+                    ParkRow(name: "Epcot", imageName: "Epcot")
+                }
+
             }
             .navigationTitle("RideWaitz Orlando")
         }

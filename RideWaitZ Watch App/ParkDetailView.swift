@@ -27,7 +27,7 @@ struct ParkDetailView: View {
                         }
                     }
                     Section(header: Text("Rides & Wait Times")) {
-                        ForEach(rides, id: \.id) { ride in
+                        ForEach(sortedRides(), id: \.id) { ride in
                             if ride.entityType == "ATTRACTION" {
                                 HStack {
                                     Text(ride.name)
@@ -65,9 +65,11 @@ struct ParkDetailView: View {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let parkResponse):
+                    print("Park details fetched successfully: \(parkResponse)")
                     self.rides = parkResponse.liveData.filter { $0.entityType == "ATTRACTION" }
                     self.isLoading = false
                 case .failure(let error):
+                    print("Error fetching park details: \(error)")
                     self.errorMessage = error.localizedDescription
                     self.isLoading = false
                 }
@@ -80,6 +82,7 @@ struct ParkDetailView: View {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let scheduleResponse):
+                    print("Park schedule fetched successfully: \(scheduleResponse)")
                     let dateFormatter = DateFormatter()
                     dateFormatter.dateFormat = "yyyy-MM-dd"
                     let today = dateFormatter.string(from: Date())
@@ -88,6 +91,7 @@ struct ParkDetailView: View {
                         $0.date == today && $0.type == "OPERATING"
                     }
                 case .failure(let error):
+                    print("Error fetching park schedule: \(error)")
                     self.errorMessage = error.localizedDescription
                 }
             }
@@ -104,5 +108,13 @@ struct ParkDetailView: View {
             return timeFormatter.string(from: date)
         }
         return isoString
+    }
+    
+    private func sortedRides() -> [Ride] {
+        rides.sorted {
+            let waitTime0 = $0.queue?.STANDBY?.waitTime ?? Int.max
+            let waitTime1 = $1.queue?.STANDBY?.waitTime ?? Int.max
+            return waitTime0 < waitTime1
+        }
     }
 }
