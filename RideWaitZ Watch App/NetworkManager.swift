@@ -8,7 +8,7 @@ struct Ride: Codable {
     let id: String
     let name: String
     let entityType: String
-    let parkId: String
+    let parkId: String?
     let queue: Queue?
     let status: String?
     let operatingHours: [OperatingHour]?
@@ -53,24 +53,31 @@ class ThemeParksAPI {
         
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             if let error = error {
+//                print("Fetch park details error: \(error)")
                 completion(.failure(error))
                 return
             }
             
             guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+//                print("Invalid response: \(String(describing: response))")
                 completion(.failure(NSError(domain: "Invalid response", code: -1, userInfo: nil)))
                 return
             }
             
             guard let data = data else {
+                print("No data received")
                 completion(.failure(NSError(domain: "No data", code: -1, userInfo: nil)))
                 return
             }
             
             do {
+                let json = try JSONSerialization.jsonObject(with: data, options: [])
+                print("Park details JSON response: \(json)")
+                
                 let parkResponse = try JSONDecoder().decode(ParkResponse.self, from: data)
                 completion(.success(parkResponse))
             } catch {
+//                print("Decoding error: \(error)")
                 completion(.failure(error))
             }
         }
@@ -87,26 +94,31 @@ class ThemeParksAPI {
         
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             if let error = error {
+//                print("Fetch park schedule error: \(error)")
                 completion(.failure(error))
                 return
             }
             
             guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+//                print("Invalid response: \(String(describing: response))")
                 completion(.failure(NSError(domain: "Invalid response", code: -1, userInfo: nil)))
                 return
             }
             
             guard let data = data else {
+//                print("No data received")
                 completion(.failure(NSError(domain: "No data", code: -1, userInfo: nil)))
                 return
             }
-            if let json = try? JSONSerialization.jsonObject(with: data, options: []) {
-                print("JSON Response: \(json)")
-            }
+            
             do {
+                let json = try JSONSerialization.jsonObject(with: data, options: [])
+//                print("Park schedule JSON response: \(json)")
+                
                 let scheduleResponse = try JSONDecoder().decode(ScheduleResponse.self, from: data)
                 completion(.success(scheduleResponse))
             } catch {
+//                print("Decoding error: \(error)")
                 completion(.failure(error))
             }
         }
