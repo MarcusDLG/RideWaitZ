@@ -41,6 +41,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3F0778482C3C5EA000DC47C6 /* RideWaitZ-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "RideWaitZ-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 		3F893B352C1728560069219B /* RideWaitZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RideWaitZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F893B3B2C1728560069219B /* RideWaitZ Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RideWaitZ Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F893B402C1728560069219B /* RideWaitZApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideWaitZApp.swift; sourceTree = "<group>"; };
@@ -82,6 +83,7 @@
 		3F893B3F2C1728560069219B /* RideWaitZ Watch App */ = {
 			isa = PBXGroup;
 			children = (
+				3F0778482C3C5EA000DC47C6 /* RideWaitZ-Watch-App-Info.plist */,
 				3F893B402C1728560069219B /* RideWaitZApp.swift */,
 				3F893B442C1728570069219B /* Assets.xcassets */,
 				3F893B462C1728570069219B /* Preview Content */,
@@ -352,13 +354,14 @@
 				DEVELOPMENT_TEAM = 2R575G8NC7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "RideWaitZ-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = RideWaitZ;
 				INFOPLIST_KEY_WKWatchOnly = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = KastleKreations.RideWaitZ.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -382,13 +385,14 @@
 				DEVELOPMENT_TEAM = 2R575G8NC7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "RideWaitZ-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = RideWaitZ;
 				INFOPLIST_KEY_WKWatchOnly = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = KastleKreations.RideWaitZ.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -410,7 +414,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2R575G8NC7;
 				INFOPLIST_KEY_CFBundleDisplayName = RideWaitZ;
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = KastleKreations.RideWaitZ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -431,7 +435,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2R575G8NC7;
 				INFOPLIST_KEY_CFBundleDisplayName = RideWaitZ;
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = KastleKreations.RideWaitZ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
