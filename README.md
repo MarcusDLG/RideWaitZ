@@ -3,8 +3,10 @@
 RideWaitZ is an Apple Watch app that provides real-time wait times for rides at various theme parks. This app uses the ThemeParks API from themeparks.wiki to fetch and display ride wait times and park hours for the following parks:
 - Universal Studios Florida
 - Universal Islands of Adventure
-- Universal Volcano Bay
 - Disney's Magic Kingdom
+- Disney's Animal Kingdom
+- Disney's Holywood Studios
+- Epcot
 
 ## Features
 
