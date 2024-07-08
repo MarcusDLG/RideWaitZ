@@ -20,12 +20,12 @@ struct ParkDetailView: View {
                     .padding()
             } else {
                 List {
-                    if let hours = parkHours {
-                        Section(header: Text("Park Hours")) {
-                            Text("Opening: \(hours.openingTime)")
-                            Text("Closing: \(hours.closingTime)")
-                        }
-                    }
+//                    if let hours = parkHours {
+//                        Section(header: Text("Park Hours")) {
+//                            Text("Opening: \(hours.openingTime)")
+//                            Text("Closing: \(hours.closingTime)")
+//                        }
+//                    }
                     Section(header: Text("Rides & Wait Times")) {
                         ForEach(rides, id: \.id) { ride in
                             HStack {
@@ -62,7 +62,8 @@ struct ParkDetailView: View {
                 switch result {
                 case .success(let parkResponse):
                     self.rides = parkResponse.liveData.filter { $0.entityType == "ATTRACTION" }
-                    self.parkHours = parkResponse.parkHours?.first // Assuming there's only one set of park hours
+                    dump(rides)
+//                    self.parkHours = parkResponse.parkHours?.first // Assuming there's only one set of park hours
                     self.isLoading = false
                 case .failure(let error):
                     self.errorMessage = error.localizedDescription

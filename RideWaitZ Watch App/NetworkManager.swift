@@ -56,9 +56,9 @@ class ThemeParksAPI {
             
             do {
                 // Print raw JSON for debugging
-                if let json = try? JSONSerialization.jsonObject(with: data, options: []) {
-                    print("JSON Response: \(json)")
-                }
+//                if let json = try? JSONSerialization.jsonObject(with: data, options: []) {
+//                    print("JSON Response: \(json)")
+//                }
                 
                 let parkResponse = try JSONDecoder().decode(ParkResponse.self, from: data)
                 completion(.success(parkResponse))
