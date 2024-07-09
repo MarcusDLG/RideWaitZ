@@ -25,24 +25,6 @@ This app uses the [ThemeParks API](https://themeparks.wiki/). Special thanks to 
 - **Schedule Endpoint**: Fetches park hours.
   - `https://api.themeparks.wiki/v1/entity/{parkId}/schedule`
 
-## Network Calls
-
-### Fetching Park Details
-
-This endpoint retrieves live data about rides in the selected park, including their wait times.
-
-```
-https://api.themeparks.wiki/v1/entity/{parkID}/live
-```
-
-### Fetching Park Schedule
-
-This endpoint retrieves the operating hours for the selected park.
-
-```
-https://api.themeparks.wiki/v1/entity/{parkID}/schedule
-```
-
 ## Installation
 
 1. Clone the repository:
