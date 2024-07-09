@@ -11,7 +11,6 @@ struct Ride: Codable {
     let parkId: String?
     let queue: Queue?
     let status: String?
-    let operatingHours: [OperatingHour]?
 }
 
 struct Queue: Codable {
@@ -20,12 +19,6 @@ struct Queue: Codable {
 
 struct Standby: Codable {
     let waitTime: Int?
-}
-
-struct OperatingHour: Codable {
-    let startTime: String?
-    let endTime: String?
-    let type: String
 }
 
 struct ScheduleResponse: Codable {
@@ -112,7 +105,7 @@ class ThemeParksAPI {
             }
             
             do {
-                let json = try JSONSerialization.jsonObject(with: data, options: [])
+//                let json = try JSONSerialization.jsonObject(with: data, options: [])
 //                print("Park schedule JSON response: \(json)")
                 
                 let scheduleResponse = try JSONDecoder().decode(ScheduleResponse.self, from: data)

@@ -40,6 +40,7 @@ struct ParkDetailView: View {
                                             .foregroundColor(.gray)
                                     }
                                 }
+                    //new section to show the "SHOW" category and display the next "Performance Time"
                             }
                         }
                     }
@@ -66,7 +67,8 @@ struct ParkDetailView: View {
                 switch result {
                 case .success(let parkResponse):
                     print("Park details fetched successfully: \(parkResponse)")
-                    self.rides = parkResponse.liveData.filter { $0.entityType == "ATTRACTION" }
+                    self.rides = parkResponse.liveData
+//                        .liveData.filter { $0.entityType == "ATTRACTION" }
                     self.isLoading = false
                 case .failure(let error):
                     print("Error fetching park details: \(error)")
