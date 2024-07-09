@@ -23,8 +23,8 @@ struct Standby: Codable {
 }
 
 struct OperatingHour: Codable {
-    let startTime: String
-    let endTime: String
+    let startTime: String?
+    let endTime: String?
     let type: String
 }
 
