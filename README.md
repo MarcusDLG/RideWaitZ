@@ -16,7 +16,7 @@ RideWaitZ is an Apple Watch app that provides real-time wait times for rides at 
 
 ## API Attribution
 
-This app uses the [ThemeParks API](https://api.themeparks.wiki/docs). Special thanks to the themeparks.wiki team for their epic API.
+This app uses the [ThemeParks API](https://themeparks.wiki/). Special thanks to the themeparks.wiki team for their epic API.
 
 ## Endpoints Used
 
