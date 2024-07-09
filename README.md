@@ -29,7 +29,7 @@ This app uses the [ThemeParks API](https://api.themeparks.wiki/docs). Special th
 
 ### Fetching Park Details
 
-This network call retrieves live data about rides in the selected park, including their wait times.
+This endpoint retrieves live data about rides in the selected park, including their wait times.
 
 ```
 https://api.themeparks.wiki/v1/entity/{parkID}/live
@@ -37,7 +37,7 @@ https://api.themeparks.wiki/v1/entity/{parkID}/live
 
 ### Fetching Park Schedule
 
-This network call retrieves the operating hours for the selected park.
+This endpoint retrieves the operating hours for the selected park.
 
 ```
 https://api.themeparks.wiki/v1/entity/{parkID}/schedule
