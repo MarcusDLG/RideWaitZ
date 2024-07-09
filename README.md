@@ -31,16 +31,16 @@ This app uses the [ThemeParks API](https://api.themeparks.wiki/docs). Special th
 
 This network call retrieves live data about rides in the selected park, including their wait times.
 
-```swift
-func fetchParkDetails(for parkId: String, completion: @escaping (Result<ParkResponse, Error>) -> Void)
+```
+https://api.themeparks.wiki/v1/entity/{parkID}/live
 ```
 
 ### Fetching Park Schedule
 
 This network call retrieves the operating hours for the selected park.
 
-```swift
-func fetchParkSchedule(for parkId: String, completion: @escaping (Result<ScheduleResponse, Error>) -> Void)
+```
+https://api.themeparks.wiki/v1/entity/{parkID}/schedule
 ```
 
 ## Installation
