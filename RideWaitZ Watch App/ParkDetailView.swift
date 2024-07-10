@@ -40,10 +40,29 @@ struct ParkDetailView: View {
                                             .foregroundColor(.gray)
                                     }
                                 }
-                    //new section to show the "SHOW" category and display the next "Performance Time"
+
                             }
                         }
                     }
+                    //new section to show the "SHOW" category and display the next "Performance Time"
+//                    Section(header: Text("Show Times")) {
+//                        ForEach(sortedRides(), id: \.id) { ride in
+//                            if ride.entityType == "SHOW" {
+//                                HStack {
+//                                    Text(ride.name)
+//                                    Spacer()
+//                                    if let showTime = ride.showtimes?.ShowSchedule?.startTime {
+//                                        Text("\(showTime)")
+//                                            .foregroundColor(.gray)
+//                                    } else {
+//                                        Text("N/A")
+//                                            .foregroundColor(.gray)
+//                                    }
+//                                }
+//
+//                            }
+//                        }
+//                    }
                 }
             }
         }
@@ -68,7 +87,7 @@ struct ParkDetailView: View {
                 case .success(let parkResponse):
                     print("Park details fetched successfully: \(parkResponse)")
                     self.rides = parkResponse.liveData
-//                        .liveData.filter { $0.entityType == "ATTRACTION" }
+//                        .filter { $0.entityType == "ATTRACTION" }
                     self.isLoading = false
                 case .failure(let error):
                     print("Error fetching park details: \(error)")
@@ -119,4 +138,5 @@ struct ParkDetailView: View {
             return waitTime0 < waitTime1
         }
     }
+    //build time selection function to choose the top returned time per show.
 }
