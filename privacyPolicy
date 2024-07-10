@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Ride WaitZ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        p {
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Privacy Policy</h1>
+        <p>
+            Welcome to Ride WaitZ! We respect your privacy and are committed to protecting it through our compliance with this policy.
+        </p>
+        <h2>Information We Collect</h2>
+        <p>
+            Our app does not collect any personal data from its users. We do not require you to provide any personal information to use our services.
+        </p>
+        <h2>Usage of Collected Information</h2>
+        <p>
+            Since we do not collect any data, we do not store, process, or share any personal information about our users.
+        </p>
+        <h2>Third-Party Services</h2>
+        <p>
+            Ride WaitZ uses an external API to retrieve wait times for rides at theme parks. This API does not collect or store any personal information about the users of our app.
+        </p>
+        <h2>Changes to This Privacy Policy</h2>
+        <p>
+            We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page. You are advised to review this Privacy Policy periodically for any changes.
+        </p>
+        <h2>Contact Us</h2>
+        <p>
+            If you have any questions about this Privacy Policy, please contact us at: support@ridewaitz.com
+        </p>
+    </div>
+</body>
+</html>
