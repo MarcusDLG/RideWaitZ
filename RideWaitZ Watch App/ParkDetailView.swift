@@ -20,12 +20,6 @@ struct ParkDetailView: View {
                     .padding()
             } else {
                 List {
-                    if let hours = parkHours {
-                        Section(header: Text("Park Hours")) {
-                            Text("Opening: \(formatTime(hours.openingTime))")
-                            Text("Closing: \(formatTime(hours.closingTime))")
-                        }
-                    }
                     Section(header: Text("Rides & Wait Times")) {
                         ForEach(sortedRides(), id: \.id) { ride in
                             if ride.entityType == "ATTRACTION" {
@@ -63,6 +57,12 @@ struct ParkDetailView: View {
 //                            }
 //                        }
 //                    }
+                    if let hours = parkHours {
+                        Section(header: Text("Park Hours")) {
+                            Text("Opening: \(formatTime(hours.openingTime))")
+                            Text("Closing: \(formatTime(hours.closingTime))")
+                        }
+                    }
                 }
             }
         }
