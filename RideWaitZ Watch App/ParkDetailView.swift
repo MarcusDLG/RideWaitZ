@@ -1,3 +1,4 @@
+
 import SwiftUI
 
 struct ParkDetailView: View {
@@ -20,13 +21,8 @@ struct ParkDetailView: View {
                     .padding()
             } else {
                 List {
-                    if let hours = parkHours {
-                        Section(header: Text("Park Hours")) {
-                            Text("Opening: \(formatTime(hours.openingTime))")
-                            Text("Closing: \(formatTime(hours.closingTime))")
-                        }
-                    }
-                    Section(header: Text("Rides & Wait Times")) {
+                    // Rides Section
+                    Section(header: Text("Rides Wait Times")) {
                         ForEach(sortedRides(), id: \.id) { ride in
                             if ride.entityType == "ATTRACTION" {
                                 HStack {
@@ -35,13 +31,45 @@ struct ParkDetailView: View {
                                     if let waitTime = ride.queue?.STANDBY?.waitTime {
                                         Text("\(waitTime) min")
                                             .foregroundColor(.gray)
-                                    } else {
+                                    } else if ride.status == "DOWN" {
+                                        Text("Down")
+                                            .foregroundColor(.gray)
+                                    }
+                                    else {
                                         Text("N/A")
                                             .foregroundColor(.gray)
                                     }
                                 }
-                    //new section to show the "SHOW" category and display the next "Performance Time"
                             }
+                        }
+                    }
+
+                    // Show Times Section
+                    Section(header: Text("Show Times")) {
+                        ForEach(sortedShows(), id: \.id) { show in
+                            HStack {
+                                Text(show.name)
+                                Spacer()
+                                if let nextShowtime = getNextShowtime(for: show) {
+                                    Text(nextShowtime)
+                                        .foregroundColor(.gray)
+                                } else if let waitTime = show.queue?.STANDBY?.waitTime {
+                                    Text("\(waitTime) min")
+                                        .foregroundColor(.gray)
+                                }
+                                else {
+                                    Text("N/A")
+                                        .foregroundColor(.gray)
+                                }
+                            }
+                        }
+                    }
+
+                    // Park Hours Section
+                    if let hours = parkHours {
+                        Section(header: Text("Park Hours")) {
+                            Text("Opening: \(formatTime(hours.openingTime))")
+                            Text("Closing: \(formatTime(hours.closingTime))")
                         }
                     }
                 }
@@ -66,11 +94,9 @@ struct ParkDetailView: View {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let parkResponse):
-                    print("Park details fetched successfully: \(parkResponse)")
-                    self.rides = parkResponse.liveData.filter { $0.entityType == "ATTRACTION" }
+                    self.rides = parkResponse.liveData
                     self.isLoading = false
                 case .failure(let error):
-                    print("Error fetching park details: \(error)")
                     self.errorMessage = error.localizedDescription
                     self.isLoading = false
                 }
@@ -83,7 +109,6 @@ struct ParkDetailView: View {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let scheduleResponse):
-                    print("Park schedule fetched successfully: \(scheduleResponse)")
                     let dateFormatter = DateFormatter()
                     dateFormatter.dateFormat = "yyyy-MM-dd"
                     let today = dateFormatter.string(from: Date())
@@ -92,30 +117,48 @@ struct ParkDetailView: View {
                         $0.date == today && $0.type == "OPERATING"
                     }
                 case .failure(let error):
-                    print("Error fetching park schedule: \(error)")
                     self.errorMessage = error.localizedDescription
                 }
             }
         }
     }
-    
+
     private func formatTime(_ isoString: String) -> String {
         let isoFormatter = ISO8601DateFormatter()
         if let date = isoFormatter.date(from: isoString) {
             let timeFormatter = DateFormatter()
             timeFormatter.dateFormat = "h:mma"
-            timeFormatter.amSymbol = "AM"
-            timeFormatter.pmSymbol = "PM"
             return timeFormatter.string(from: date)
         }
         return isoString
     }
     
     private func sortedRides() -> [Ride] {
-        rides.sorted {
+        rides.filter { $0.entityType == "ATTRACTION" }.sorted {
             let waitTime0 = $0.queue?.STANDBY?.waitTime ?? Int.max
             let waitTime1 = $1.queue?.STANDBY?.waitTime ?? Int.max
             return waitTime0 < waitTime1
         }
+    }
+
+    private func sortedShows() -> [Ride] {
+        rides.filter { $0.entityType == "SHOW" }
+    }
+
+    private func getNextShowtime(for show: Ride) -> String? {
+        guard let showtimes = show.showtimes, !showtimes.isEmpty else {
+            return nil
+        }
+        
+        let now = Date()
+        let dateFormatter = ISO8601DateFormatter()
+        
+        for showtime in showtimes {
+            if let startTime = dateFormatter.date(from: showtime.startTime), startTime > now {
+                return formatTime(showtime.startTime)
+            }
+        }
+        
+        return nil
     }
 }

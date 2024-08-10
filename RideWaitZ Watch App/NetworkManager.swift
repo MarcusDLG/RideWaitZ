@@ -11,8 +11,14 @@ struct Ride: Codable {
     let parkId: String?
     let queue: Queue?
     let status: String?
+    let showtimes: [ShowSchedule]?
 }
 
+struct ShowSchedule: Codable{
+    let endTime: String
+    let startTime: String
+    let type: String
+}
 struct Queue: Codable {
     let STANDBY: Standby?
 }
