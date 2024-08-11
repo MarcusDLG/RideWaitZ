@@ -1,4 +1,3 @@
-
 import SwiftUI
 
 struct ParkDetailView: View {
@@ -22,7 +21,8 @@ struct ParkDetailView: View {
             } else {
                 List {
                     // Rides Section
-                    Section(header: Text("Rides Wait Times")) {
+                    Section(header: Text("Rides Wait Times")
+                                .foregroundColor(.accentColor)) {
                         ForEach(sortedRides(), id: \.id) { ride in
                             if ride.entityType == "ATTRACTION" {
                                 HStack {
@@ -33,6 +33,15 @@ struct ParkDetailView: View {
                                             .foregroundColor(.gray)
                                     } else if ride.status == "DOWN" {
                                         Text("Down")
+                                            .foregroundColor(.gray)
+                                    } else if ride.status == "OPERATING" {
+                                        Text("Open")
+                                            .foregroundColor(.gray)
+                                    } else if ride.status == "REFURBISHMENT" {
+                                        Text("Refurb.")
+                                            .foregroundColor(.gray)
+                                    } else if ride.status == "CLOSED" {
+                                        Text("Closed")
                                             .foregroundColor(.gray)
                                     }
                                     else {
@@ -45,7 +54,8 @@ struct ParkDetailView: View {
                     }
 
                     // Show Times Section
-                    Section(header: Text("Show Times")) {
+                    Section(header: Text("Show Times")
+                                .foregroundColor(.accentColor)) {
                         ForEach(sortedShows(), id: \.id) { show in
                             HStack {
                                 Text(show.name)
@@ -55,6 +65,12 @@ struct ParkDetailView: View {
                                         .foregroundColor(.gray)
                                 } else if let waitTime = show.queue?.STANDBY?.waitTime {
                                     Text("\(waitTime) min")
+                                        .foregroundColor(.gray)
+                                } else if show.status == "OPERATING" {
+                                    Text("Open")
+                                        .foregroundColor(.gray)
+                                } else if show.status == "CLOSED" {
+                                    Text("Closed")
                                         .foregroundColor(.gray)
                                 }
                                 else {
@@ -67,7 +83,8 @@ struct ParkDetailView: View {
 
                     // Park Hours Section
                     if let hours = parkHours {
-                        Section(header: Text("Park Hours")) {
+                        Section(header: Text("Park Hours")
+                                    .foregroundColor(.accentColor)) {
                             Text("Opening: \(formatTime(hours.openingTime))")
                             Text("Closing: \(formatTime(hours.closingTime))")
                         }
@@ -142,7 +159,37 @@ struct ParkDetailView: View {
     }
 
     private func sortedShows() -> [Ride] {
-        rides.filter { $0.entityType == "SHOW" }
+        rides.filter { $0.entityType == "SHOW" }.sorted { show1, show2 in
+            let waitTime1 = show1.queue?.STANDBY?.waitTime
+            let waitTime2 = show2.queue?.STANDBY?.waitTime
+
+            let nextShowtime1 = getNextShowtimeDate(for: show1)
+            let nextShowtime2 = getNextShowtimeDate(for: show2)
+
+            // Sort shows with wait times first
+            if let waitTime1 = waitTime1, waitTime2 == nil {
+                return true
+            } else if waitTime1 == nil, waitTime2 != nil {
+                return false
+            }
+
+            // If both have wait times, sort by wait time
+            if let waitTime1 = waitTime1, let waitTime2 = waitTime2 {
+                return waitTime1 < waitTime2
+            }
+
+            // Sort by next available showtime
+            if let nextShowtime1 = nextShowtime1, let nextShowtime2 = nextShowtime2 {
+                return nextShowtime1 < nextShowtime2
+            } else if nextShowtime1 != nil && nextShowtime2 == nil {
+                return true
+            } else if nextShowtime1 == nil && nextShowtime2 != nil {
+                return false
+            }
+
+            // If neither have wait times or showtimes, sort by name
+            return show1.name < show2.name
+        }
     }
 
     private func getNextShowtime(for show: Ride) -> String? {
@@ -156,6 +203,23 @@ struct ParkDetailView: View {
         for showtime in showtimes {
             if let startTime = dateFormatter.date(from: showtime.startTime), startTime > now {
                 return formatTime(showtime.startTime)
+            }
+        }
+        
+        return nil
+    }
+
+    private func getNextShowtimeDate(for show: Ride) -> Date? {
+        guard let showtimes = show.showtimes, !showtimes.isEmpty else {
+            return nil
+        }
+        
+        let now = Date()
+        let dateFormatter = ISO8601DateFormatter()
+        
+        for showtime in showtimes {
+            if let startTime = dateFormatter.date(from: showtime.startTime), startTime > now {
+                return startTime
             }
         }
         
