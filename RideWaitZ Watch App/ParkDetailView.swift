@@ -10,6 +10,20 @@ struct ParkDetailView: View {
 
     @Environment(\.scenePhase) private var scenePhase
 
+    // IDs of Halloween Horror Nights houses to exclude
+    let hhnHouseIDs: Set<String> = [
+        "f078584b-62be-430f-b61d-7a71eb989f5f",
+        "16d97a47-a763-4b0c-8f88-62637be74fea",
+        "bd9c8404-573d-43ea-944c-953061222e5c",
+        "2c23a5ac-f72a-498b-969b-e09bb63f3ecd",
+        "77b12f06-3d64-4a56-b8bc-710abf307cd6",
+        "68def2e1-b239-4315-a3cd-e51082ad1888",
+        "a68b5bcf-2cf9-4119-bd85-4be3149fc259",
+        "6f8f3d6c-5faa-4fba-b0e2-6310c886a221",
+        "87586fb8-f93d-4c8a-a459-96e2f389dca1",
+        "495ca8ae-c654-4cc1-bf07-e2fa7d384733"
+    ]
+
     var body: some View {
         VStack {
             if isLoading {
@@ -28,26 +42,8 @@ struct ParkDetailView: View {
                                 HStack {
                                     Text(ride.name)
                                     Spacer()
-                                    if let waitTime = ride.queue?.STANDBY?.waitTime {
-                                        Text("\(waitTime) min")
-                                            .foregroundColor(.gray)
-                                    } else if ride.status == "DOWN" {
-                                        Text("Down")
-                                            .foregroundColor(.gray)
-                                    } else if ride.status == "OPERATING" {
-                                        Text("Open")
-                                            .foregroundColor(.gray)
-                                    } else if ride.status == "REFURBISHMENT" {
-                                        Text("Refurb.")
-                                            .foregroundColor(.gray)
-                                    } else if ride.status == "CLOSED" {
-                                        Text("Closed")
-                                            .foregroundColor(.gray)
-                                    }
-                                    else {
-                                        Text("N/A")
-                                            .foregroundColor(.gray)
-                                    }
+                                    Text(rideStatus(for: ride))
+                                        .foregroundColor(.gray)
                                 }
                             }
                         }
@@ -60,23 +56,8 @@ struct ParkDetailView: View {
                             HStack {
                                 Text(show.name)
                                 Spacer()
-                                if let nextShowtime = getNextShowtime(for: show) {
-                                    Text(nextShowtime)
-                                        .foregroundColor(.gray)
-                                } else if let waitTime = show.queue?.STANDBY?.waitTime {
-                                    Text("\(waitTime) min")
-                                        .foregroundColor(.gray)
-                                } else if show.status == "OPERATING" {
-                                    Text("Open")
-                                        .foregroundColor(.gray)
-                                } else if show.status == "CLOSED" {
-                                    Text("Closed")
-                                        .foregroundColor(.gray)
-                                }
-                                else {
-                                    Text("N/A")
-                                        .foregroundColor(.gray)
-                                }
+                                Text(showStatus(for: show))
+                                    .foregroundColor(.gray)
                             }
                         }
                     }
@@ -111,7 +92,9 @@ struct ParkDetailView: View {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let parkResponse):
-                    self.rides = parkResponse.liveData
+                    self.rides = parkResponse.liveData.filter { ride in
+                        !hhnHouseIDs.contains(ride.id)
+                    }
                     self.isLoading = false
                 case .failure(let error):
                     self.errorMessage = error.localizedDescription
@@ -150,6 +133,19 @@ struct ParkDetailView: View {
         return isoString
     }
     
+    private func isWithinParkHours() -> Bool {
+        guard let hours = parkHours else { return false }
+        let now = Date()
+        let dateFormatter = ISO8601DateFormatter()
+        
+        if let openingTime = dateFormatter.date(from: hours.openingTime),
+           let closingTime = dateFormatter.date(from: hours.closingTime) {
+            return now >= openingTime && now <= closingTime
+        }
+        
+        return false
+    }
+
     private func sortedRides() -> [Ride] {
         rides.filter { $0.entityType == "ATTRACTION" }.sorted {
             let waitTime0 = $0.queue?.STANDBY?.waitTime ?? Int.max
@@ -159,12 +155,19 @@ struct ParkDetailView: View {
     }
 
     private func sortedShows() -> [Ride] {
-        rides.filter { $0.entityType == "SHOW" }.sorted { show1, show2 in
+        let withinParkHours = isWithinParkHours()
+
+        return rides.filter { $0.entityType == "SHOW" }.sorted { show1, show2 in
             let waitTime1 = show1.queue?.STANDBY?.waitTime
             let waitTime2 = show2.queue?.STANDBY?.waitTime
 
             let nextShowtime1 = getNextShowtimeDate(for: show1)
             let nextShowtime2 = getNextShowtimeDate(for: show2)
+
+            // If outside park hours, show all as "Closed"
+            if !withinParkHours {
+                return false
+            }
 
             // Sort shows with wait times first
             if let waitTime1 = waitTime1, waitTime2 == nil {
@@ -189,6 +192,49 @@ struct ParkDetailView: View {
 
             // If neither have wait times or showtimes, sort by name
             return show1.name < show2.name
+        }
+    }
+
+    private func rideStatus(for ride: Ride) -> String {
+        if let waitTime = ride.queue?.STANDBY?.waitTime {
+            return "\(waitTime) min"
+        } else if ride.status == "DOWN" {
+            return "Down"
+        } else if ride.status == "OPERATING" {
+            return "Open"
+        } else if ride.status == "REFURBISHMENT" {
+            return "Refurb."
+        } else if ride.status == "CLOSED" {
+            return "Closed"
+        } else {
+            return "N/A"
+        }
+    }
+
+    private func showStatus(for show: Ride) -> String {
+        let now = Date()
+        let dateFormatter = ISO8601DateFormatter()
+        let operatingHours = show.operatingHours?.first
+        
+        var isOperatingNow = false
+        if let startTimeStr = operatingHours?.startTime, let endTimeStr = operatingHours?.endTime,
+           let startTime = dateFormatter.date(from: startTimeStr),
+           let endTime = dateFormatter.date(from: endTimeStr) {
+            isOperatingNow = now >= startTime && now <= endTime
+        }
+
+        if !isWithinParkHours() {
+            return "Closed"
+        } else if let nextShowtime = getNextShowtime(for: show) {
+            return nextShowtime
+        } else if let waitTime = show.queue?.STANDBY?.waitTime {
+            return "\(waitTime) min"
+        } else if show.status == "OPERATING" && isOperatingNow {
+            return "Open"
+        } else if show.status == "CLOSED" || !isOperatingNow {
+            return "Closed"
+        } else {
+            return "N/A"
         }
     }
 

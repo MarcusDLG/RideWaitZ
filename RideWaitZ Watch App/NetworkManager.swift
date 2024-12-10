@@ -12,6 +12,12 @@ struct Ride: Codable {
     let queue: Queue?
     let status: String?
     let showtimes: [ShowSchedule]?
+    let operatingHours: [OperatingHour]? // Add this line
+}
+    struct OperatingHour: Codable {
+        let startTime: String?
+        let endTime: String?
+        let type: String?
 }
 
 struct ShowSchedule: Codable{
