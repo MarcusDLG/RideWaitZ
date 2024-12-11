@@ -12,16 +12,17 @@ struct ParkDetailView: View {
 
     // IDs of Halloween Horror Nights houses to exclude
     let hhnHouseIDs: Set<String> = [
-        "f078584b-62be-430f-b61d-7a71eb989f5f",
-        "16d97a47-a763-4b0c-8f88-62637be74fea",
-        "bd9c8404-573d-43ea-944c-953061222e5c",
-        "2c23a5ac-f72a-498b-969b-e09bb63f3ecd",
-        "77b12f06-3d64-4a56-b8bc-710abf307cd6",
-        "68def2e1-b239-4315-a3cd-e51082ad1888",
-        "a68b5bcf-2cf9-4119-bd85-4be3149fc259",
-        "6f8f3d6c-5faa-4fba-b0e2-6310c886a221",
-        "87586fb8-f93d-4c8a-a459-96e2f389dca1",
-        "495ca8ae-c654-4cc1-bf07-e2fa7d384733"
+        "f078584b-62be-430f-b61d-7a71eb989f5f", // Slaughter Sinema 2
+        "16d97a47-a763-4b0c-8f88-62637be74fea", // Nightmare Fuel: Nocturnal Circus
+        "bd9c8404-573d-43ea-944c-953061222e5c", // Monstruos: The Monsters of Latin America
+        "2c23a5ac-f72a-498b-969b-e09bb63f3ecd", // Insidious: The Further
+        "77b12f06-3d64-4a56-b8bc-710abf307cd6", // Goblin's Feast
+        "68def2e1-b239-4315-a3cd-e51082ad1888", // Universal Monsters: Eternal Bloodlines
+        "a68b5bcf-2cf9-4119-bd85-4be3149fc259", // A Quiet Place
+        "6f8f3d6c-5faa-4fba-b0e2-6310c886a221", // Major Sweets Candy Factory
+        "87586fb8-f93d-4c8a-a459-96e2f389dca1", // The Museum: Deadly Exhibits
+        "495ca8ae-c654-4cc1-bf07-e2fa7d384733", // Ghostbusters: Frozen Empire
+        "b0d7f5d2-6068-4f59-a648-1d335ba3e16f"  // Triplets of Terror
     ]
 
     var body: some View {
