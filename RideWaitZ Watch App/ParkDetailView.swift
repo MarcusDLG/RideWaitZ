@@ -16,7 +16,7 @@ struct ParkDetailView: View {
             } else {
                 List {
                     Section(header: Text("Rides Wait Times").foregroundColor(.accentColor)) {
-                        ForEach(viewModel.filteredRides, id: \.id) { ride in
+                        ForEach(viewModel.sortedRides, id: \.id) { ride in
                             RideRowView(ride: ride)
                         }
                     }

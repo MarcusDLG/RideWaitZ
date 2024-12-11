@@ -14,7 +14,7 @@ struct Ride: Codable {
     let showtimes: [ShowSchedule]?
     let operatingHours: [OperatingHour]?
 }
-    struct OperatingHour: Codable {
+struct OperatingHour: Codable {
         let startTime: String?
         let endTime: String?
         let type: String?
@@ -25,6 +25,7 @@ struct ShowSchedule: Codable{
     let startTime: String
     let type: String
 }
+
 struct Queue: Codable {
     let STANDBY: Standby?
 }
