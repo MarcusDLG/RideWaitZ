@@ -43,12 +43,12 @@ class ParkDetailViewModel: ObservableObject {
 
     var sortedRides: [Ride] {
         rides.filter { $0.entityType == "ATTRACTION" }.sorted {
-            let isNullAndOperating0 = $0.queue?.STANDBY?.waitTime == nil && $0.status == "OPERATING"
-            let isNullAndOperating1 = $1.queue?.STANDBY?.waitTime == nil && $1.status == "OPERATING"
-
-            if isNullAndOperating0 != isNullAndOperating1 {
-                return isNullAndOperating0
-            }
+//            let isNullAndOperating0 = $0.queue?.STANDBY?.waitTime == nil && $0.status == "OPERATING"
+//            let isNullAndOperating1 = $1.queue?.STANDBY?.waitTime == nil && $1.status == "OPERATING"
+//
+//            if isNullAndOperating0 != isNullAndOperating1 {
+//                return isNullAndOperating0
+//            }
 
             let waitTime0 = $0.queue?.STANDBY?.waitTime ?? Int.max
             let waitTime1 = $1.queue?.STANDBY?.waitTime ?? Int.max
