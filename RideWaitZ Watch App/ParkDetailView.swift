@@ -4,6 +4,7 @@ struct ParkDetailView: View {
     let parkId: String
     let parkName: String
     @StateObject private var viewModel = ParkDetailViewModel()
+    @Environment(\.scenePhase) private var scenePhase
 
     var body: some View {
         VStack {
@@ -36,6 +37,11 @@ struct ParkDetailView: View {
         }
         .onAppear {
             viewModel.loadParkData(parkId: parkId)
+        }
+        .onChange(of: scenePhase) { newPhase in
+            if newPhase == .active {
+                viewModel.loadParkData(parkId: parkId)
+            }
         }
         .navigationTitle(parkName)
     }
