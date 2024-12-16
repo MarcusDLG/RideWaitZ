@@ -38,8 +38,8 @@ struct ParkDetailView: View {
         .onAppear {
             viewModel.loadParkData(parkId: parkId)
         }
-        .onChange(of: scenePhase) { newPhase in
-            if newPhase == .active {
+        .onChange(of: scenePhase) {
+            if scenePhase == .active {
                 viewModel.loadParkData(parkId: parkId)
             }
         }
