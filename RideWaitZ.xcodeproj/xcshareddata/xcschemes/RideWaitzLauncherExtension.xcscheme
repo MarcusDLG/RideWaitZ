@@ -2,7 +2,7 @@
 <Scheme
    LastUpgradeVersion = "1620"
    wasCreatedForAppExtension = "YES"
-   version = "2.0">
+   version = "2.2">
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES"
@@ -14,11 +14,20 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES"
             buildForAnalyzing = "YES">
+            <AutocreatedTestPlanReference>
+            </AutocreatedTestPlanReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3F3576E92D107C7F002C7698"
-               BuildableName = "ComplicationLauncherExtension.appex"
-               BlueprintName = "ComplicationLauncherExtension"
+               BlueprintIdentifier = "3F839F2C2D11BA7C00B46A91"
+               BuildableName = "RideWaitzLauncherExtension.appex"
+               BlueprintName = "RideWaitzLauncherExtension"
                ReferencedContainer = "container:RideWaitZ.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -75,18 +84,18 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3F3576E92D107C7F002C7698"
-            BuildableName = "ComplicationLauncherExtension.appex"
-            BlueprintName = "ComplicationLauncherExtension"
+            BlueprintIdentifier = "3F839F2C2D11BA7C00B46A91"
+            BuildableName = "RideWaitzLauncherExtension.appex"
+            BlueprintName = "RideWaitzLauncherExtension"
             ReferencedContainer = "container:RideWaitZ.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3F893B342C1728560069219B"
-            BuildableName = "RideWaitZ.app"
-            BlueprintName = "RideWaitZ"
+            BlueprintIdentifier = "3F893B3A2C1728560069219B"
+            BuildableName = "RideWaitZ Watch App.app"
+            BlueprintName = "RideWaitZ Watch App"
             ReferencedContainer = "container:RideWaitZ.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -118,9 +127,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3F3576E92D107C7F002C7698"
-            BuildableName = "ComplicationLauncherExtension.appex"
-            BlueprintName = "ComplicationLauncherExtension"
+            BlueprintIdentifier = "3F839F2C2D11BA7C00B46A91"
+            BuildableName = "RideWaitzLauncherExtension.appex"
+            BlueprintName = "RideWaitzLauncherExtension"
             ReferencedContainer = "container:RideWaitZ.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
