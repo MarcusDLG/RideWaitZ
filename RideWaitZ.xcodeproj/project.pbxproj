@@ -10,6 +10,7 @@
 		3F5C69FA2D0A2E9D0067F5B8 /* ParkDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5C69F92D0A2E960067F5B8 /* ParkDetailViewModel.swift */; };
 		3F5C69FC2D0A2EC50067F5B8 /* RideStatusHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5C69FB2D0A2EC20067F5B8 /* RideStatusHelper.swift */; };
 		3F5D48CA2D11C57A00B2A376 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F3576EE2D107C7F002C7698 /* SwiftUI.framework */; };
+		3F78E5A92D11E007009922B5 /* RideWaitZ-Watch-App-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F0778482C3C5EA000DC47C6 /* RideWaitZ-Watch-App-Info.plist */; };
 		3F839F2E2D11BA7C00B46A91 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F3576EC2D107C7F002C7698 /* WidgetKit.framework */; };
 		3F839F3A2D11BA7D00B46A91 /* RideWaitzLauncherExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3F839F2D2D11BA7C00B46A91 /* RideWaitzLauncherExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		3F893B3C2C1728560069219B /* RideWaitZ Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 3F893B3B2C1728560069219B /* RideWaitZ Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -290,6 +291,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F78E5A92D11E007009922B5 /* RideWaitZ-Watch-App-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,6 +456,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
+				INFOPLIST_KEY_WKWatchOnly = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.9;
@@ -514,6 +518,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
+				INFOPLIST_KEY_WKWatchOnly = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.9;
@@ -598,6 +604,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2R575G8NC7;
 				INFOPLIST_KEY_CFBundleDisplayName = RideWaitZ;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				MARKETING_VERSION = 1.9;
 				PRODUCT_BUNDLE_IDENTIFIER = KastleKreations.RideWaitZ;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -618,6 +625,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2R575G8NC7;
 				INFOPLIST_KEY_CFBundleDisplayName = RideWaitZ;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				MARKETING_VERSION = 1.9;
 				PRODUCT_BUNDLE_IDENTIFIER = KastleKreations.RideWaitZ;
 				PRODUCT_NAME = "$(TARGET_NAME)";

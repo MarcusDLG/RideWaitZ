@@ -15,7 +15,6 @@ struct RideWaitzLauncher: Widget {
     }
 }
 
-// MARK: - Timeline Provider
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
         SimpleEntry(date: Date())
@@ -36,7 +35,6 @@ struct SimpleEntry: TimelineEntry {
     let date: Date
 }
 
-// MARK: - Complication View
 struct RideWaitzLauncherView: View {
     var entry: SimpleEntry
 

@@ -3,9 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleIdentifier</key>
-	<string>
-
-KastleKreations.RideWaitZ</string>
+	<string>KastleKreations.RideWaitZ</string>
 	<key>WKWatchOnly</key>
 	<true/>
 	<key>ITSAppUsesNonExemptEncryption</key>
