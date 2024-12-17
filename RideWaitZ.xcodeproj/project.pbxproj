@@ -3,12 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		3F5C69FA2D0A2E9D0067F5B8 /* ParkDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5C69F92D0A2E960067F5B8 /* ParkDetailViewModel.swift */; };
 		3F5C69FC2D0A2EC50067F5B8 /* RideStatusHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5C69FB2D0A2EC20067F5B8 /* RideStatusHelper.swift */; };
+		3F839F2E2D11BA7C00B46A91 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F3576EC2D107C7F002C7698 /* WidgetKit.framework */; };
+		3F839F2F2D11BA7C00B46A91 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F3576EE2D107C7F002C7698 /* SwiftUI.framework */; };
+		3F839F3A2D11BA7D00B46A91 /* RideWaitzLauncherExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3F839F2D2D11BA7C00B46A91 /* RideWaitzLauncherExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		3F893B3C2C1728560069219B /* RideWaitZ Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 3F893B3B2C1728560069219B /* RideWaitZ Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		3F893B412C1728560069219B /* RideWaitZApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F893B402C1728560069219B /* RideWaitZApp.swift */; };
 		3F893B452C1728570069219B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F893B442C1728570069219B /* Assets.xcassets */; };
@@ -21,6 +24,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		3F839F382D11BA7D00B46A91 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3F893B2F2C1728550069219B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3F839F2C2D11BA7C00B46A91;
+			remoteInfo = RideWaitzLauncherExtension;
+		};
 		3F893B3D2C1728560069219B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3F893B2F2C1728550069219B /* Project object */;
@@ -37,6 +47,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				3F839F3A2D11BA7D00B46A91 /* RideWaitzLauncherExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -61,6 +72,7 @@
 		3F3576EE2D107C7F002C7698 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		3F5C69F92D0A2E960067F5B8 /* ParkDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkDetailViewModel.swift; sourceTree = "<group>"; };
 		3F5C69FB2D0A2EC20067F5B8 /* RideStatusHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideStatusHelper.swift; sourceTree = "<group>"; };
+		3F839F2D2D11BA7C00B46A91 /* RideWaitzLauncherExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = RideWaitzLauncherExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F893B352C1728560069219B /* RideWaitZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RideWaitZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F893B3B2C1728560069219B /* RideWaitZ Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RideWaitZ Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F893B402C1728560069219B /* RideWaitZApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideWaitZApp.swift; sourceTree = "<group>"; };
@@ -73,7 +85,30 @@
 		3FF50FE82D0A35F000B0C9B8 /* ShowRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		3F839F3D2D11BA7D00B46A91 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 3F839F2C2D11BA7C00B46A91 /* RideWaitzLauncherExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		3F839F302D11BA7C00B46A91 /* RideWaitzLauncher */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (3F839F3D2D11BA7D00B46A91 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = RideWaitzLauncher; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
+		3F839F2A2D11BA7C00B46A91 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F839F2F2D11BA7C00B46A91 /* SwiftUI.framework in Frameworks */,
+				3F839F2E2D11BA7C00B46A91 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3F893B382C1728560069219B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -98,6 +133,7 @@
 			children = (
 				3F0EBF1B2C3C94B400DD072F /* README.md */,
 				3F893B3F2C1728560069219B /* RideWaitZ Watch App */,
+				3F839F302D11BA7C00B46A91 /* RideWaitzLauncher */,
 				3F3576EB2D107C7F002C7698 /* Frameworks */,
 				3F893B362C1728560069219B /* Products */,
 			);
@@ -108,6 +144,7 @@
 			children = (
 				3F893B352C1728560069219B /* RideWaitZ.app */,
 				3F893B3B2C1728560069219B /* RideWaitZ Watch App.app */,
+				3F839F2D2D11BA7C00B46A91 /* RideWaitzLauncherExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -141,6 +178,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		3F839F2C2D11BA7C00B46A91 /* RideWaitzLauncherExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F839F3E2D11BA7D00B46A91 /* Build configuration list for PBXNativeTarget "RideWaitzLauncherExtension" */;
+			buildPhases = (
+				3F839F292D11BA7C00B46A91 /* Sources */,
+				3F839F2A2D11BA7C00B46A91 /* Frameworks */,
+				3F839F2B2D11BA7C00B46A91 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				3F839F302D11BA7C00B46A91 /* RideWaitzLauncher */,
+			);
+			name = RideWaitzLauncherExtension;
+			packageProductDependencies = (
+			);
+			productName = RideWaitzLauncherExtension;
+			productReference = 3F839F2D2D11BA7C00B46A91 /* RideWaitzLauncherExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		3F893B342C1728560069219B /* RideWaitZ */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3F893B4F2C1728570069219B /* Build configuration list for PBXNativeTarget "RideWaitZ" */;
@@ -170,6 +229,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				3F839F392D11BA7D00B46A91 /* PBXTargetDependency */,
 			);
 			name = "RideWaitZ Watch App";
 			productName = "RideWaitZ Watch App";
@@ -186,6 +246,9 @@
 				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
+					3F839F2C2D11BA7C00B46A91 = {
+						CreatedOnToolsVersion = 16.2;
+					};
 					3F893B342C1728560069219B = {
 						CreatedOnToolsVersion = 15.4;
 						LastSwiftMigration = 1540;
@@ -210,11 +273,19 @@
 			targets = (
 				3F893B342C1728560069219B /* RideWaitZ */,
 				3F893B3A2C1728560069219B /* RideWaitZ Watch App */,
+				3F839F2C2D11BA7C00B46A91 /* RideWaitzLauncherExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3F839F2B2D11BA7C00B46A91 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3F893B332C1728560069219B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -234,6 +305,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3F839F292D11BA7C00B46A91 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3F893B372C1728560069219B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -252,6 +330,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		3F839F392D11BA7D00B46A91 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3F839F2C2D11BA7C00B46A91 /* RideWaitzLauncherExtension */;
+			targetProxy = 3F839F382D11BA7D00B46A91 /* PBXContainerItemProxy */;
+		};
 		3F893B3E2C1728560069219B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 3F893B3A2C1728560069219B /* RideWaitZ Watch App */;
@@ -260,6 +343,65 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		3F839F3B2D11BA7D00B46A91 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = 2R575G8NC7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RideWaitzLauncher/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = RideWaitzLauncher;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.9;
+				PRODUCT_BUNDLE_IDENTIFIER = KastleKreations.RideWaitZ.watchkitapp.RideWaitzLauncher;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.2;
+			};
+			name = Debug;
+		};
+		3F839F3C2D11BA7D00B46A91 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = 2R575G8NC7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RideWaitzLauncher/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = RideWaitzLauncher;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.9;
+				PRODUCT_BUNDLE_IDENTIFIER = KastleKreations.RideWaitZ.watchkitapp.RideWaitzLauncher;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 11.2;
+			};
+			name = Release;
+		};
 		3F893B492C1728570069219B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -491,6 +633,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3F839F3E2D11BA7D00B46A91 /* Build configuration list for PBXNativeTarget "RideWaitzLauncherExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F839F3B2D11BA7D00B46A91 /* Debug */,
+				3F839F3C2D11BA7D00B46A91 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		3F893B322C1728550069219B /* Build configuration list for PBXProject "RideWaitZ" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
