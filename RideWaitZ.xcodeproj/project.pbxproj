@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		3F5C69FA2D0A2E9D0067F5B8 /* ParkDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5C69F92D0A2E960067F5B8 /* ParkDetailViewModel.swift */; };
 		3F5C69FC2D0A2EC50067F5B8 /* RideStatusHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5C69FB2D0A2EC20067F5B8 /* RideStatusHelper.swift */; };
+		3F5D48CA2D11C57A00B2A376 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F3576EE2D107C7F002C7698 /* SwiftUI.framework */; };
 		3F839F2E2D11BA7C00B46A91 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F3576EC2D107C7F002C7698 /* WidgetKit.framework */; };
-		3F839F2F2D11BA7C00B46A91 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F3576EE2D107C7F002C7698 /* SwiftUI.framework */; };
 		3F839F3A2D11BA7D00B46A91 /* RideWaitzLauncherExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3F839F2D2D11BA7C00B46A91 /* RideWaitzLauncherExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		3F893B3C2C1728560069219B /* RideWaitZ Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 3F893B3B2C1728560069219B /* RideWaitZ Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		3F893B412C1728560069219B /* RideWaitZApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F893B402C1728560069219B /* RideWaitZApp.swift */; };
@@ -104,7 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F839F2F2D11BA7C00B46A91 /* SwiftUI.framework in Frameworks */,
+				3F5D48CA2D11C57A00B2A376 /* SwiftUI.framework in Frameworks */,
 				3F839F2E2D11BA7C00B46A91 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -368,7 +368,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 11.2;
+				WATCHOS_DEPLOYMENT_TARGET = 10.5;
 			};
 			name = Debug;
 		};
@@ -398,7 +398,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				VALIDATE_PRODUCT = YES;
-				WATCHOS_DEPLOYMENT_TARGET = 11.2;
+				WATCHOS_DEPLOYMENT_TARGET = 10.5;
 			};
 			name = Release;
 		};
