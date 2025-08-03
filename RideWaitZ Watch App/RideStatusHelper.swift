@@ -2,9 +2,12 @@ import Foundation
 
 struct RideStatusHelper {
     static func rideStatus(for ride: Ride) -> String {
+        
+        // Add helper status for rides that have showtimes
+        
         if let waitTime = ride.queue?.STANDBY?.waitTime {
             return "\(waitTime) min"
-        } else if ride.status == "DOWN" {
+        }   else if ride.status == "DOWN" {
             return "Down"
         } else if ride.status == "OPERATING" {
             return "Open"
@@ -24,8 +27,8 @@ struct RideStatusHelper {
             return nextShowtime
         } else if let waitTime = show.queue?.STANDBY?.waitTime {
             return "\(waitTime) min"
-        } else if show.status == "OPERATING" {
-            return "Open"
+        } else if show.status == "OPERATING" && show.showtimes?.isEmpty == true {
+            return "Open - No Showtimes"
         } else {
             return "N/A"
         }

@@ -5,6 +5,9 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List {
+                NavigationLink(destination: ParkDetailView(parkId: "12dbb85b-265f-44e6-bccf-f1faa17211fc", parkName: "Epic Universe")) {
+                    ParkRow(name: "Epic Universe", imageName: "EpicUniverse")
+                }
                 NavigationLink(destination: ParkDetailView(parkId: "eb3f4560-2383-4a36-9152-6b3e5ed6bc57", parkName: "Universal Studios")) {
                     ParkRow(name: "Universal Studios", imageName: "UniversalStudiosFlorida")
                 }
