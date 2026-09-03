@@ -2,6 +2,12 @@ import Foundation
 import SwiftUI
 
 struct ContentView: View {
+    private var appVersionText: String {
+        let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "?"
+        let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "?"
+
+        return "RideWaitZ v\(version) (\(build))"
+    }
     var body: some View {
         NavigationView {
             List {
@@ -26,6 +32,12 @@ struct ContentView: View {
                 NavigationLink(destination: ParkDetailView(parkId: "47f90d2c-e191-4239-a466-5892ef59a88b", parkName: "Epcot")) {
                     ParkRow(name: "Epcot", imageName: "Epcot")
                 }
+                Text(appVersionText)
+                    .font(.caption2)
+                    .foregroundStyle(.secondary)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .listRowBackground(Color.clear)
+                    .allowsHitTesting(false)
 
             }
             .navigationTitle("RideWaitz Orlando")
